@@ -1,5 +1,54 @@
 # Changelog
 
+## \[1.0.0-beta.2]
+
+- Remove anonymous lifetimes on examples.
+  - [c1f8e113](https://www.github.com/tauri-apps/tauri/commit/c1f8e11342941b846479d73bf50cb0a328ac3574) chore: remove unnecessary anonymous lifetimes ([#1829](https://www.github.com/tauri-apps/tauri/pull/1829)) on 2021-05-14
+
+- Moves `shell`, `dialog::FileDialogBuilder` and `process::Command` APIs behind their allowlist feature flags.
+  - [aab3e1f1](https://www.github.com/tauri-apps/tauri/commit/aab3e1f18b74efd63fdc227e84382ee6e9e63817) refactor(core): move api modules behind allowlist feature flags ([#1864](https://www.github.com/tauri-apps/tauri/pull/1864)) on 2021-05-19
+
+- Adds `create_window` API to the `AppHandle` struct.
+  - [95d518af](https://www.github.com/tauri-apps/tauri/commit/95d518afa14fe613302d7091622b4b115543e1f2) feat(core): expose `AppHandle`, add `create_window` API ([#1855](https://www.github.com/tauri-apps/tauri/pull/1855)) on 2021-05-18
+
+- Adds a `handle` function to the `App` struct, which returns a `Send` handle to the app instance.
+  - [95d518af](https://www.github.com/tauri-apps/tauri/commit/95d518afa14fe613302d7091622b4b115543e1f2) feat(core): expose `AppHandle`, add `create_window` API ([#1855](https://www.github.com/tauri-apps/tauri/pull/1855)) on 2021-05-18
+
+- Use `attohttpc` on the HTTP API by default for bundle size optimization. `reqwest` is implemented behind the `reqwest-client` feature flag.
+  - [17c7c439](https://www.github.com/tauri-apps/tauri/commit/17c7c4396ff2d5e13fc8726c2965b4e810fad6b9) refactor(core): use `attohttpc` by default ([#1861](https://www.github.com/tauri-apps/tauri/pull/1861)) on 2021-05-19
+
+- Expose mutable getters for the rest of the public `Context` getters.
+
+- `pub fn assets_mut(&mut self) -> &mut Arc<A>`
+
+- `pub fn default_window_icon_mut(&mut self) -> &mut Option<Vec<u8>>`
+
+- `pub fn system_tray_icon_mut(&mut self) -> &mut Option<Icon>`
+
+- `pub fn package_info_mut(&mut self) -> &mut tauri::api::PackageInfo`
+
+- [754c2e76](https://www.github.com/tauri-apps/tauri/commit/754c2e766abe25da053236ce311318aa1410d106) feat(core): finish mutable getters for `Context` ([#1814](https://www.github.com/tauri-apps/tauri/pull/1814)) on 2021-05-13
+
+- Validate `tauri.conf.json > build > devPath` and `tauri.conf.json > build > distDir` values.
+  - [e97846aa](https://www.github.com/tauri-apps/tauri/commit/e97846aae933cad5cba284a2a133ae7aaee1107c) feat(core): validate `devPath` and `distDir` values ([#1848](https://www.github.com/tauri-apps/tauri/pull/1848)) on 2021-05-17
+
+- Set the Tauri window as parent for dialogs.
+  - [abf78c58](https://www.github.com/tauri-apps/tauri/commit/abf78c5860cdc52fbfd2bc5dbca29a864e2da8f9) fix(core): set parent window handle on dialogs, closes [#1876](https://www.github.com/tauri-apps/tauri/pull/1876) ([#1889](https://www.github.com/tauri-apps/tauri/pull/1889)) on 2021-05-21
+
+- (internal): allow `wry` dependency to be optional again while keeping default args.
+  code that wishes to expose a struct with a default arg should use the `crate::manager::default_args!` macro to declare
+  the struct, so that it can automatically feature-gate `DefaultArgs` behind using `wry`.
+  - [3d8dcbbf](https://www.github.com/tauri-apps/tauri/commit/3d8dcbbf8188b9e96d6b03dc984ca022eebf53e4) fix(core): allow wry to be an optional dep again (fix [#1841](https://www.github.com/tauri-apps/tauri/pull/1841)) ([#1854](https://www.github.com/tauri-apps/tauri/pull/1854)) on 2021-05-17
+
+- Removes `image` dependency. For now only `.ico` icons on Windows are supported, and we'll implement other types on demand to optimize bundle size.
+  - [1be37a3f](https://www.github.com/tauri-apps/tauri/commit/1be37a3f30ff789d9396ec9009f9c0dd0bb928a7) refactor(core): remove `image` dependency ([#1859](https://www.github.com/tauri-apps/tauri/pull/1859)) on 2021-05-18
+
+- Adds `run_iteration` API to the `App` and return the app instance on the `build` method of the `Builder`. The `run_iteration` method runs the window event loop step by step, allowing Tauri to be run along other applications.
+  - [8c0d0739](https://www.github.com/tauri-apps/tauri/commit/8c0d0739eebf7286b64a5380e922746411eb52c6) feat(core): add `run_iteration`, `parent_window` and `owner_window` APIs, closes [#1872](https://www.github.com/tauri-apps/tauri/pull/1872) ([#1874](https://www.github.com/tauri-apps/tauri/pull/1874)) on 2021-05-21
+
+- Adds window native handle getter (HWND on Windows).
+  - [abf78c58](https://www.github.com/tauri-apps/tauri/commit/abf78c5860cdc52fbfd2bc5dbca29a864e2da8f9) fix(core): set parent window handle on dialogs, closes [#1876](https://www.github.com/tauri-apps/tauri/pull/1876) ([#1889](https://www.github.com/tauri-apps/tauri/pull/1889)) on 2021-05-21
+
 ## \[1.0.0-beta.1]
 
 - Adds a mutable `config` getter on the `Context` struct.

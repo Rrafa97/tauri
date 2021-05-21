@@ -1,5 +1,10 @@
 # Changelog
 
+## \[1.0.0-beta.1]
+
+- Fixes resource bundling on Windows when there is nested resource folders.
+  - [35a20527](https://www.github.com/tauri-apps/tauri/commit/35a2052771fc0897064ed146d9557527a0a76453) fix(bundler): windows resources bundling with nested folders ([#1878](https://www.github.com/tauri-apps/tauri/pull/1878)) on 2021-05-21
+
 ## \[1.0.0-beta.0]
 
 - Fixes the `Installed-Size` value on the debian package.

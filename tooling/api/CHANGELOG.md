@@ -1,5 +1,15 @@
 # Changelog
 
+## \[1.0.0-beta.2]
+
+- Use `export type` to export TS types, enums and interfaces.
+  - [9a662d26](https://www.github.com/tauri-apps/tauri/commit/9a662d2601b01d712c6bd205f8db1b674f56dfa7) fix: Monitor if --isolatedModules is enabled ([#1825](https://www.github.com/tauri-apps/tauri/pull/1825)) on 2021-05-13
+  - [612cd8ec](https://www.github.com/tauri-apps/tauri/commit/612cd8ecb8e02954f3696b9e138cbc7d2c228fad) feat(api): finalize `export type` usage ([#1847](https://www.github.com/tauri-apps/tauri/pull/1847)) on 2021-05-17
+- Mark the `WebviewWindow` constructor as public.
+  - [4aeb936e](https://www.github.com/tauri-apps/tauri/commit/4aeb936e9b60b895d383597dc698ee5d638436f9) fix(api): `WebviewWindow` constructor is public ([#1888](https://www.github.com/tauri-apps/tauri/pull/1888)) on 2021-05-21
+- Validate arguments on the window `setLocation`, `setSize`, `setMinSize` and `setMaxSize` API.
+  - [7616e6cc](https://www.github.com/tauri-apps/tauri/commit/7616e6cc7bcd49f688b0d00fdc33c94b7b93713d) feat(api): validate window API `size` and `location` arguments ([#1846](https://www.github.com/tauri-apps/tauri/pull/1846)) on 2021-05-17
+
 ## \[1.0.0-beta.1]
 
 - Adds `package.json` to the `exports` object.

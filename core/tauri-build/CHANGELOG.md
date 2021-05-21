@@ -1,5 +1,11 @@
 # Changelog
 
+## \[1.0.0-beta.1]
+
+- Validate `tauri.conf.json > build > devPath` and `tauri.conf.json > build > distDir` values.
+  - Bumped due to a bump in tauri-codegen.
+  - [e97846aa](https://www.github.com/tauri-apps/tauri/commit/e97846aae933cad5cba284a2a133ae7aaee1107c) feat(core): validate `devPath` and `distDir` values ([#1848](https://www.github.com/tauri-apps/tauri/pull/1848)) on 2021-05-17
+
 ## \[1.0.0-beta.0]
 
 - The `try_build` method now has a `Attributes` argument to allow specifying the window icon path used on Windows.
